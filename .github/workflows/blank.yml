@@ -41,6 +41,11 @@ jobs:
           echo "Username: ${{env.username}}"
           echo "Password: ${{env.password}}"
 
+      - name: "Mostrando valores solo si el usuario es correcto"
+        if: ${{ env.username != '' && env.password != '' }}
+        run: |
+          echo "Si existe usuario y contraseña, mostrando contraseña: ${{env.password}}"
+
       - name: "Display default variables"
         run: |
           echo "GITHUB_REPOSITORY: ${{ toJson(github.event)}}"
