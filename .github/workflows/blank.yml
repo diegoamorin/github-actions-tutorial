@@ -22,6 +22,8 @@ jobs:
       platform: aws
       region: us-east-1
       account: 123456789012
+      username: ${{secrets.USERNAME}}
+      password: ${{secrets.PASSWORD}}
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -36,6 +38,8 @@ jobs:
           echo "Platform: ${{env.platform}}"
           echo "Region: ${{env.region}}"
           echo "Account: ${{env.account}}"
+          echo "Username: ${{env.username}}"
+          echo "Password: ${{env.password}}"
 
       - name: "Display default variables"
         run: |
